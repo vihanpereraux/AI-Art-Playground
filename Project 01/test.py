@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import itertools
 
 # Getting the local video file
-cap = cv2.VideoCapture('G:\Projects\AI Arts\Project 01\movie1.mp4')
+cap = cv2.VideoCapture('G:\Projects\AI Arts\Project 01\movie0.mp4')
 
 
 while True:
@@ -29,7 +29,10 @@ while True:
     # Ref - https://docs.opencv.org/3.4/d8/d01/group__imgproc__color__conversions.html
     grayVideo = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     laplacian2 = cv2.Laplacian( grayVideo, cv2.CV_64F)
-    tiktoktEffect = cv2.cvtColor(frame, cv2.COLOR_RGB2BGRA)
+
+    tiktoktEffect = cv2.cvtColor(frame, cv2.COLOR_RGB2BGRA) #good x1
+    tiktoktEffect2 = cv2.cvtColor(frame, cv2.COLOR_RGB2HLS) #good x1
+    tiktoktEffect3 = cv2.cvtColor(frame, cv2.COLOR_HLS2BGR) #good x3 - trippy
 
     # Accesing pixels
     px = grayVideo[50,50]
