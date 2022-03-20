@@ -7,8 +7,10 @@ import matplotlib.pyplot as plt
 import itertools
 
 # Getting the local video file
-cap = cv2.VideoCapture('G:\Projects\AI Arts\Project 01\movie0.mp4')
+cap = cv2.VideoCapture('G:\Projects\AI Arts\Project 01\Banger.mp4')
 
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+output = cv2.VideoWriter('Output.mp4', fourcc, 20.0, (540,960))
 
 while True:
     ret, frame = cap.read()
@@ -46,18 +48,18 @@ while True:
     print(px)
 
     # Displaying the retouched video
+    # If this frame is captured
     if ( ret == True ):
         #cv2.imshow('original', grayVideo)
         #cv2.imshow('laplacian', laplacian)
-        cv2.imshow('tiktok', tiktoktEffect)
-
-        #cv2.imshow('sobelx', sobelx)
-        #cv2.imshow('sobely', sobely)
-        #cv2.imshow('Edges', edges)
-        #cv2.imshow('Mask',mask)
+        cv2.imshow('tiktok', tiktoktEffect3)
+        output.write(tiktoktEffect3)
     
-    # Adding a key to close the window
-    if ( cv2.waitKey(25) == ord('q') ):
+        # Adding a key to close the window
+        if ( cv2.waitKey(25) == ord('q') ):
+            break
+        
+    else:
         break
 
 cap.release()
