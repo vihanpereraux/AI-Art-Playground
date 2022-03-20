@@ -9,7 +9,9 @@ import itertools
 # Getting the local video file
 cap = cv2.VideoCapture('G:\Projects\AI Arts\Project 01\Banger.mp4')
 
+# Encoder object
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
+#                  output name, encoder obj, frame rate, ratio
 output = cv2.VideoWriter('Output.mp4', fourcc, 20.0, (540,960))
 
 while True:
@@ -50,8 +52,6 @@ while True:
     # Displaying the retouched video
     # If this frame is captured
     if ( ret == True ):
-        #cv2.imshow('original', grayVideo)
-        #cv2.imshow('laplacian', laplacian)
         cv2.imshow('tiktok', tiktoktEffect3)
         output.write(tiktoktEffect3)
     
